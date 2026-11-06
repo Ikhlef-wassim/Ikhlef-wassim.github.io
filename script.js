@@ -7,10 +7,18 @@ document.querySelectorAll("[data-repo]").forEach((el) => {
 });
 
 const copyBtn = document.getElementById("copyDiscordBtn");
-copyBtn.addEventListener("click", async () => {
-  await navigator.clipboard.writeText("ikh._.wa");
-  copyBtn.textContent = "Copied: ikh._.wa!";
-  setTimeout(() => {
-    copyBtn.textContent = "Discord: ikh._.wa";
-  }, 2000);
-});
+if (copyBtn) {
+  copyBtn.addEventListener("click", async () => {
+    await navigator.clipboard.writeText("ikh._.wa");
+    copyBtn.textContent = "Copied: ikh._.wa!";
+    setTimeout(() => {
+      copyBtn.textContent = "Discord: ikh._.wa";
+    }, 2000);
+  });
+}
+
+const igUser = "unhinged_.dev";
+const igLink = document.getElementById("instagramLink");
+if (igLink) {
+  igLink.href = `https://instagram.com{igUser}`;
+}
