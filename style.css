@@ -46,6 +46,7 @@ a:focus-visible, .btn:focus-visible {
 }
 h2 { font-size: 1.25rem; margin-bottom: 16px; color: #e6edf3; }
 .grid {
+  align-items: start;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
