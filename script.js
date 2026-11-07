@@ -1,24 +1,16 @@
-const user = "Ikhlef-wassim";
-const ghBase = ["https", "://", "github", ".com/", user].join("");
+document.querySelectorAll("[data-copy]").forEach((btn) => {
+  const original = btn.textContent;
+  const value = btn.getAttribute("data-copy");
 
-document.getElementById("githubLink").href = ghBase;
-document.querySelectorAll("[data-repo]").forEach((el) => {
-  el.href = `${ghBase}/${el.getAttribute("data-repo")}`;
-});
-
-const copyBtn = document.getElementById("copyDiscordBtn");
-if (copyBtn) {
-  copyBtn.addEventListener("click", async () => {
-    await navigator.clipboard.writeText("ikh._.wa");
-    copyBtn.textContent = "Copied: ikh._.wa!";
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      btn.textContent = `Copied: ${value}`;
+    } catch (err) {
+      btn.textContent = `Copy failed. Username: ${value}`;
+    }
     setTimeout(() => {
-      copyBtn.textContent = "Discord: ikh._.wa";
+      btn.textContent = original;
     }, 2000);
   });
-}
-
-const igUser = "unhinged_.dev";
-const igLink = document.getElementById("instagramLink");
-if (igLink) {
-  igLink.href = `https://instagram.com{igUser}`;
-}
+});
